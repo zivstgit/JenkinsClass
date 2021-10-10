@@ -26,13 +26,13 @@ echo "ghi3" >> Src2'''
       parallel {
         stage('Grep1') {
           steps {
-            sh 'grep "abc" * >> Grp'
+            sh 'grep "abc" Src* >> Grp'
           }
         }
 
         stage('Grep2') {
           steps {
-            sh 'grep "2" * >> Grp'
+            sh 'grep "2" Src* >> Grp'
           }
         }
 
@@ -43,9 +43,9 @@ echo "ghi3" >> Src2'''
       steps {
         sh '''cat Grp | wc -l 
 echo "-----------------------------------"
-grep "abc" *
+grep "abc" Src*
 echo "-----------------------------------"
-grep "2" * >> Grp'''
+grep "2" Src* >> Grp'''
       }
     }
 
