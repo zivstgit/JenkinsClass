@@ -41,7 +41,7 @@ echo "ghi3" >> Src2'''
 
     stage('Check7') {
       steps {
-        sh 'cat Grp'
+        readFile 'Grp'
       }
     }
 
