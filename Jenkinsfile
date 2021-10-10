@@ -26,7 +26,7 @@ echo "ghi3" >> Src2'''
       parallel {
         stage('Grep1') {
           steps {
-            sh 'grep abc * >> Grp'
+            sh 'grep "abc" * >> Grp'
           }
         }
 
@@ -41,7 +41,11 @@ echo "ghi3" >> Src2'''
 
     stage('Check7') {
       steps {
-        readFile 'Grp'
+        sh '''cat Grp | wc -l 
+echo "-----------------------------------"
+grep "abc" *
+echo "-----------------------------------"
+grep "2" * >> Grp'''
       }
     }
 
