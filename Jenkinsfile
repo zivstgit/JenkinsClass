@@ -42,9 +42,11 @@ echo "ghi3" >> Src2'''
     stage('Check7') {
       steps {
         sh '''cat Grp | wc -l 
-echo "-----------------------------------"
-grep "abc" Src*
-echo "-----------------------------------"
+echo "------------------"
+cat Grp
+echo "------------------"
+grep "abc" Src* >> Grp
+echo "------------------"
 grep "2" Src* >> Grp'''
       }
     }
