@@ -43,11 +43,11 @@ echo "ghi3" >> Src2'''
       steps {
         sh '''cat Grp | wc -l 
 echo "------------------"
-cat Grp
+cat Grp | echo
 echo "------------------"
-grep "abc" Src* >> Grp
+grep "abc" Src*
 echo "------------------"
-grep "2" Src* >> Grp'''
+grep "2" Src*'''
       }
     }
 
